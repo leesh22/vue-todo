@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Vue Todo</title>
+    <link href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css" rel="stylesheet">
+    <link href="ass/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <ul class="menu">
+                <li class="menu-text">Home</li>
+                <li>
+                    <a href="#">Completed Tasks</a>
+                </li>
+                <li>
+                    <a href="#">Outstanding Tasks</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="callout large primary">
+        <div class="row column text-center">
+            <h1>Vue Todo</h1>
+            <h2 class="subheader">Simple Todo list, add tasks and complete tasks.</h2>
+        </div>
+    </div>
+    <div id="tasks">
+      <div class="row medium-8 large-7 columns">
+          <div class="blog-post">
+            <h3>Add a task pal</h3>
+            <input type="text" id="task-input" placeholder="Title" v-model="task.title">
+            <input type="text" id="task-input" placeholder="Description" v-model="task.description">
+            <input type="date" class="form-control" placeholder="Date" v-model="task.dateAdded">
+            <a class="small expanded button" type="button" name="button" id="submit-task" v-on:click="addTask">submit</a>
+            <hr>
+          </div>
+      </div>
+      <div v-el:msg>
+        <div class="row medium-8 large-7 columns" v-for="task in tasks" >
+            <div class="task">
+              <h4><i class="fa fa-thumb-tack"></i> {{ task.title }} <small>due: {{ task.dateAdded }}</small></h4>
+              <p v-if="task.description">{{ task.description }}</p>
+              <a class="complete" id="complete" v-on:click="completeTask"><i class="fa fa-check"></i></a>
+            </div>
+        </div>
+     </div>
+    </div>
+
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/vue-resource/dist/vue-resource.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>

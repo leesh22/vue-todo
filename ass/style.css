@@ -1,0 +1,15 @@
+a.complete {
+  position: absolute;
+  right: 0;
+  top: 30%;
+  font-size: 25px;
+  color: green;
+}
+
+.task {
+  position: relative;
+}
+
+.completed {
+   text-decoration: line-through;
+}
